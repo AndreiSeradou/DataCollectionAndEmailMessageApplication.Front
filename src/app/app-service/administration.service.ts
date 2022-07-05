@@ -19,7 +19,7 @@ export class AdministrationService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/GetAllUsers",{headers:headers});
+    return  this.httpClient.get<User[]>(this.baseURL+"Administration/all",{headers:headers});
   }
 
   public GetUserGoogleSubscriptions(userName:string)
@@ -28,9 +28,10 @@ export class AdministrationService {
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'userName': `${userName}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/GetUserGoogleSubscriptions?="+userName,{headers:headers});
+    return  this.httpClient.get<User[]>(this.baseURL+"Administration/google-subscriptions",{headers:headers});
   }
 
   public GetUserWheatherSubscriptions(userName:string)
@@ -39,9 +40,10 @@ export class AdministrationService {
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'userName': `${userName}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/GetUserWheatherSubscriptions?="+userName,{headers:headers});
+    return  this.httpClient.get<User[]>(this.baseURL+"Administration/weather-subscriptions",{headers:headers});
   }
 
   public GetUserFootballSubscriptions(userName:string)
@@ -50,8 +52,9 @@ export class AdministrationService {
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'userName': `${userName}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/GetUserFootballSubscriptions?="+userName,{headers:headers});
+    return  this.httpClient.get<User[]>(this.baseURL+"Administration/football-subscriptions",{headers:headers});
   }
 }

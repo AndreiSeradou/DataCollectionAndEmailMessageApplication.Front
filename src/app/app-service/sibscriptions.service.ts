@@ -21,7 +21,7 @@ export class SibscriptionsService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return  this.httpClient.get<FootballSubscriptions[]>(this.baseURL+"FootballSubscription/GetAllFootballSubscriptions",{headers:headers});
+    return  this.httpClient.get<FootballSubscriptions[]>(this.baseURL+"FootballSubscription/all",{headers:headers});
   }
 
   public GetAllWheatherSubscriptions()
@@ -32,7 +32,7 @@ export class SibscriptionsService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return  this.httpClient.get<FootballSubscriptions[]>(this.baseURL+"WheatherSubscription/GetAllWheatherSubscriptions",{headers:headers});
+    return  this.httpClient.get<FootballSubscriptions[]>(this.baseURL+"WheatherSubscription/all",{headers:headers});
   }
 
   public GetAllGoogleSubscriptions()
@@ -43,7 +43,7 @@ export class SibscriptionsService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return  this.httpClient.get<GoogleSubscriptions[]>(this.baseURL+"GoogleTranslateSubscription/GetAllGoogleSubscriptions",{headers:headers});
+    return  this.httpClient.get<GoogleSubscriptions[]>(this.baseURL+"GoogleTranslateSubscription/all",{headers:headers});
   }
 
   public SubscribeFootball(model : FootballSubscriptions)
@@ -64,7 +64,7 @@ export class SibscriptionsService {
       userName:userName
     }
 
-    return  this.httpClient.post<boolean>(this.baseURL+"FootballSubscription/Subscribe",body,{headers:headers});
+    return  this.httpClient.post<boolean>(this.baseURL+"FootballSubscription/subscribe",body,{headers:headers});
   }
 
   public SubscribeWheather(model : WheatherSubscriptions)
@@ -87,7 +87,7 @@ export class SibscriptionsService {
       city:model.city
     }
 
-    return  this.httpClient.post<boolean>(this.baseURL+"WheatherSubscription/Subscribe",body,{headers:headers});
+    return  this.httpClient.post<boolean>(this.baseURL+"WheatherSubscription/subscribe",body,{headers:headers});
   }
 
   public SubscribeGoogle(model : GoogleSubscriptions)
@@ -108,7 +108,7 @@ export class SibscriptionsService {
       userName:userName
     }
 
-    return  this.httpClient.post<boolean>(this.baseURL+"GoogleTranslateSubscription/Subscribe",body,{headers:headers});
+    return  this.httpClient.post<boolean>(this.baseURL+"GoogleTranslateSubscription/subscribe",body,{headers:headers});
   }
 
   public UpdateFootballSubscription(model : FootballSubscriptions)
@@ -129,7 +129,7 @@ export class SibscriptionsService {
       userName:userName
     }
     
-    return  this.httpClient.put<boolean>(this.baseURL+"FootballSubscription/UpdateFootballSubscription",body,{headers:headers});
+    return  this.httpClient.put<boolean>(this.baseURL+"FootballSubscription/update",body,{headers:headers});
   }
 
   public UpdateWheatherSubscription(model : WheatherSubscriptions)
@@ -152,7 +152,7 @@ export class SibscriptionsService {
       city:model.city
     }
     
-    return  this.httpClient.put<boolean>(this.baseURL+"WheatherSubscription/UpdateWheatherSubscription",body,{headers:headers});
+    return  this.httpClient.put<boolean>(this.baseURL+"WheatherSubscription/update",body,{headers:headers});
   }
 
   public UpdateGoogleSubscription(model : FootballSubscriptions)
@@ -173,7 +173,7 @@ export class SibscriptionsService {
       userName:userName
     }
     
-    return  this.httpClient.put<boolean>(this.baseURL+"GoogleTranslateSubscription/UpdateGoogleSubscription",body,{headers:headers});
+    return  this.httpClient.put<boolean>(this.baseURL+"GoogleTranslateSubscription/update",body,{headers:headers});
   }
 
   public UnsubscribeFootball(model : FootballSubscriptions)
@@ -193,7 +193,7 @@ export class SibscriptionsService {
       lastRunTime:model.lastRunTime,   
       userName:userName
     }
-    return  this.httpClient.delete<boolean>(this.baseURL+"FootballSubscription/Unsubscribe",body,{headers:headers});
+    return  this.httpClient.delete<boolean>(this.baseURL+"FootballSubscription/unsubscribe",body,{headers:headers});
   }
 
   public UnsubscribeWheather(model : WheatherSubscriptions)
@@ -216,7 +216,7 @@ export class SibscriptionsService {
       city:model.city
     }
 
-    return  this.httpClient.delete<boolean>(this.baseURL+"WheatherSubscription/Unsubscribe",body,{headers:headers});
+    return  this.httpClient.delete<boolean>(this.baseURL+"WheatherSubscription/unsubscribe",body,{headers:headers});
   }
 
   public unsubscribeGoogle(model : GoogleSubscriptions)
@@ -237,6 +237,6 @@ export class SibscriptionsService {
       userName:userName
     }
 
-    return  this.httpClient.delete<boolean>(this.baseURL+"GoogleTranslateSubscription/Unsubscribe",body,{headers:headers});
+    return  this.httpClient.delete<boolean>(this.baseURL+"GoogleTranslateSubscription/unsubscribe",body,{headers:headers});
   }
 }

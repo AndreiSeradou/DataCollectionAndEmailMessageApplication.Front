@@ -18,7 +18,7 @@ export class AuthToRequestService {
       password:password
     }
 
-    return this.httpClient.post<ResponceModel>(this.baseURL+"AuthManagement/Login",body);
+    return this.httpClient.post<ResponceModel>(this.baseURL+"AuthManagement/login",body);
   }
 
   public register(fullname:string,email:string,password:string)
@@ -30,7 +30,7 @@ export class AuthToRequestService {
       password:password
     }
 
-    return this.httpClient.post<ResponceModel>(this.baseURL+"AuthManagement/Register",body);
+    return this.httpClient.post<ResponceModel>(this.baseURL+"AuthManagement/register",body);
   }
 
 }
