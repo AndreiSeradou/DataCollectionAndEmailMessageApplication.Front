@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card">
+                <form [formGroup]="createBookForm" (ngSubmit)="onSubmit()">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Create Subcription</h5>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">ApiName</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="ApiName" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="name" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="description" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Cron</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="cronParams" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Param1</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="param2" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Param2</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="param1" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!createBookForm.valid">Create</button>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
