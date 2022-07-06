@@ -15,12 +15,27 @@ export class SubscriptionsComponent implements OnInit {
   public footballList:FootballSubscriptions[] = [];
   public googleList: GoogleSubscriptions[] = [];
 
-  constructor(private formBuilder:FormBuilder,private subService:SibscriptionsService) { }
+  constructor(private subService:SibscriptionsService) { }
 
   ngOnInit(): void {
     this.getAllFootball();
     this.getAllGoogle();
     this.getAllWheather();
+  }
+
+  onSubmitDeleteGoogleSub(id:number)
+  {
+    this.subService.UnsubscribeGoogle(this.footballList.find(el => el.id == id));
+  }
+
+  onSubmitDeleteWheatherSub(id:number)
+  {
+    this.subService.UnsubscribeWheather(this.footballList.find(el => el.id == id));
+  }
+
+  onSubmitDeleteFootballSub(id:number)
+  {
+    this.subService.UnsubscribeFootball(this.footballList.find(el => el.id == id));
   }
 
    getAllFootball()

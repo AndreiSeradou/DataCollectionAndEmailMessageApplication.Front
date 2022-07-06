@@ -219,7 +219,7 @@ export class SibscriptionsService {
     return  this.httpClient.delete<boolean>(this.baseURL+"WheatherSubscription/unsubscribe",body,{headers:headers});
   }
 
-  public unsubscribeGoogle(model : GoogleSubscriptions)
+  public UnsubscribeGoogle(model : GoogleSubscriptions)
   {
     let token = localStorage.getItem("token");
     let userName = localStorage.getItem("name");
