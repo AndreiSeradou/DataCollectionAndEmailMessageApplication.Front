@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FootballSubscriptions } from '../Models/FootballSubscriptions';
+import { GoogleSubscriptions } from '../Models/GoogleSubscriptions';
 import { User } from '../Models/User';
+import { WheatherSubscriptions } from '../Models/WheatherSubscriptions';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +34,7 @@ export class AdministrationService {
       'Authorization': `Bearer ${token}`,
       'userName': `${userName}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/google-subscriptions",{headers:headers});
+    return  this.httpClient.get<GoogleSubscriptions[]>(this.baseURL+"Administration/google-subscriptions",{headers:headers});
   }
 
   public GetUserWheatherSubscriptions(userName:string)
@@ -43,7 +46,7 @@ export class AdministrationService {
       'Authorization': `Bearer ${token}`,
       'userName': `${userName}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/weather-subscriptions",{headers:headers});
+    return  this.httpClient.get<WheatherSubscriptions[]>(this.baseURL+"Administration/weather-subscriptions",{headers:headers});
   }
 
   public GetUserFootballSubscriptions(userName:string)
@@ -55,6 +58,6 @@ export class AdministrationService {
       'Authorization': `Bearer ${token}`,
       'userName': `${userName}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/football-subscriptions",{headers:headers});
+    return  this.httpClient.get<FootballSubscriptions[]>(this.baseURL+"Administration/football-subscriptions",{headers:headers});
   }
 }

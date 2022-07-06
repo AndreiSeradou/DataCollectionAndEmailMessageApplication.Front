@@ -1,69 +1,113 @@
-<div class="job_listing_area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <div class="section_title">
-                    <h3 class="section_h3">Subscription Listing</h3>
-                </div>
-            </div>
+<div class="container" >
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+  
+          <table class="table">
+            <thead>
+              <tr>
+  
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Cron Param</th>
+                <th scope="col">Last Time Run</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sub of googleList">
+                <td>{{sub.id}}</td>
+                <td>{{sub.name}}</td>
+                <td>{{sub.description}}</td>
+                <td>{{sub.cronParam}}</td>
+                <td>{{sub.lastRunTime}}</td>
+                <td> 
+                  <form  (ngSubmit)="onSubmitDeleteGoogleSub(sub.id)"> 
+                    <button type="submit" class="btn btn-primary" >Delete</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="job_lists">
-            <div class="row">
-                <tr *ngFor="let wheather of wheatherList">
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                       
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="jobs_conetent">
-                                <a ><h4>Name: {{wheather.name}}</h4></a>
-                                <div class="location">
-                                    <p> <i class="fa fa-clock-o"></i> Discription: {{wheather.description}}</p>
-                                </div>                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </tr>
-            </div>
-        </div>
-        <div class="job_lists">
-            <div class="row">
-                <tr *ngFor="let football of footballList">
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                       
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="jobs_conetent">
-                                <a ><h4>Name: {{football.name}}</h4></a>
-                                <div class="location">
-                                    <p> <i class="fa fa-clock-o"></i> Discription: {{football.description}}</p>
-                                </div>                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </tr>
-            </div>
-        </div>
-        <div class="job_lists">
-            <div class="row">
-                <tr *ngFor="let google of googleList">
-                <div class="col-lg-12 col-md-12">
-                    <div class="single_jobs white-bg d-flex justify-content-between">
-                       
-                        <div class="jobs_left d-flex align-items-center">
-                            <div class="jobs_conetent">
-                                <a ><h4>Name: {{google.name}}</h4></a>
-                                <div class="location">
-                                    <p> <i class="fa fa-clock-o"></i> Discription: {{google.description}}</p>
-                                </div>                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </tr>
-            </div>
-        </div>
+  
+      </div>
     </div>
-</div>
+  </div>
 
+  <div class="container" >
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+  
+          <table class="table">
+            <thead>
+              <tr>
+  
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Cron Param</th>
+                <th scope="col">Last Time Run</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sub of wheatherList">
+                <td>{{sub.id}}</td>
+                <td>{{sub.name}}</td>
+                <td>{{sub.description}}</td>
+                <td>{{sub.cronParam}}</td>
+                <td>{{sub.lastRunTime}}</td>
+                <td> 
+                  <form  (ngSubmit)="onSubmitDeleteGWheatherSub(sub.id)"> 
+                    <button type="submit" class="btn btn-primary" >Delete</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="container" >
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+  
+          <table class="table">
+            <thead>
+              <tr>
+  
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Cron Param</th>
+                <th scope="col">Last Time Run</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sub of footballList">
+                <td>{{sub.id}}</td>
+                <td>{{sub.name}}</td>
+                <td>{{sub.description}}</td>
+                <td>{{sub.cronParam}}</td>
+                <td>{{sub.lastRunTime}}</td>
+                <td> 
+                  <form  (ngSubmit)="onSubmitDeleteFootballSub(sub.id)"> 
+                    <button type="submit" class="btn btn-primary" >Delete</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+      </div>
+    </div>
+  </div>
