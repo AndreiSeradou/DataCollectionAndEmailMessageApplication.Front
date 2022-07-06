@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdministrationService } from '../app-service/administration.service';
 import { User } from '../Models/User';
+import { WheatherSubscriptions } from '../Models/WheatherSubscriptions';
 
 @Component({
   selector: 'app-administration-component',
@@ -10,7 +11,11 @@ import { User } from '../Models/User';
 export class AdministrationComponentComponent implements OnInit {
 
   public userList: User[] = [];
-  constructor(private formBuilder:FormBuilder,private adminService:AdministrationService) { }
+  public userWhether: WheatherSubscriptions[] = [];
+  public userGoogle: WheatherSubscriptions[] = [];
+  public userFootball: WheatherSubscriptions[] = [];
+
+  constructor(private adminService:AdministrationService) { }
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -22,4 +27,22 @@ export class AdministrationComponentComponent implements OnInit {
        this.userList = data;
      })
    }
+
+   getUserStatistics(userName: string){
+    
+
+    this.adminService.GetUserFootballSubscriptions(userName).subscribe((data:any)=>{
+      this.userFootball = data;
+    })
+
+    this.adminService.GetUserGoogleSubscriptions(userName).subscribe((data:any)=>{
+      this.userGoogle = data;
+    })
+
+    this.adminService.GetUserWheatherSubscriptions(userName).subscribe((data:any)=>{
+      this.userWhether = data;
+    })
+
+    alert("User statictics: Football subscriptions" + this.userFootball.length + "Google subscriptions" + this.userGoogle.length + "Wheather subscriptions" + this.userWhether.length);
+  }
 }

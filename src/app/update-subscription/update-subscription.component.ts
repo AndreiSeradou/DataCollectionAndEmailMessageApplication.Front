@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FootballSubscriptions } from '../Models/FootballSubscriptions';
 import { WheatherSubscriptions } from '../Models/WheatherSubscriptions';
 
 @Component({
