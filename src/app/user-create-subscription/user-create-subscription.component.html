@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <div class="card">
-                <form [formGroup]="createBookForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="createSubForm" (ngSubmit)="onSubmit()">
                 <div class="card-body">
                   <h5 class="card-title text-center">Create Subcription</h5>
                     <div class="mb-3 row">
@@ -24,25 +24,19 @@
                         </div>
                       </div>
                       <div class="mb-3 row">
-                        <label for="staticEmail" class="col-sm-2 col-form-label">Cron</label>
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Cron Params</label>
                         <div class="col-sm-10">
                           <input type="text" formControlName="cronParams" class="form-control" id="number" value="">
                         </div>
                       </div>
                       <div class="mb-3 row">
-                        <label for="staticEmail" class="col-sm-2 col-form-label">Param1</label>
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Api Params</label>
                         <div class="col-sm-10">
-                          <input type="text" formControlName="param2" class="form-control" id="number" value="">
-                        </div>
-                      </div>
-                      <div class="mb-3 row">
-                        <label for="staticEmail" class="col-sm-2 col-form-label">Param2</label>
-                        <div class="col-sm-10">
-                          <input type="text" formControlName="param1" class="form-control" id="number" value="">
+                          <input type="text" formControlName="apiParams" class="form-control" id="number" value="">
                         </div>
                       </div>
                 </div>
-                <button type="submit" class="btn btn-primary" [disabled]="!createBookForm.valid">Create</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!createSubForm.valid">Create</button>
                 </form>
               </div>
         </div>

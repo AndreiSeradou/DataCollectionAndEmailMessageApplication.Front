@@ -1,8 +1,8 @@
 export class ResponceModel
 {
-    name: string | undefined;
-    role: string | undefined;
-    token: string | undefined;
-    success: boolean | undefined;
+    name: string;
+    role: string;
+    token: string;
+    success: boolean;
     errors: any;
 }

@@ -1,30 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" *ngIf="!isUserLogin && !isLibrarianLogin"  routerLink="/register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" *ngIf="!isUserLogin && !isLibrarianLogin" routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/login" *ngIf="isUserLogin || isLibrarianLogin" (click)="onLogout()">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" *ngIf="isUserLogin" routerLink="/subscriptions">Your Subscriptions</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" *ngIf="isUserLogin" routerLink="/create-subscription">Create</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" *ngIf="isUserLogin" routerLink="/update-subscriptions">Update</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" *ngIf="isAdminLogin" routerLink="/administration">Administration</a>
-        </li>
-      </ul>
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="!isUserLogin && !isAdminLogin"  routerLink="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="!isUserLogin && !isAdminLogin" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/login" *ngIf="isUserLogin || isAdminLogin" (click)="onLogout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="isUserLogin" routerLink="/user-subscriptions">Subscriptions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="isUserLogin" routerLink="/user-create-subscription">Create Subscription</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="isUserLogin" routerLink="/user-update-subscription">Update Subscription</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="isAdminLogin" routerLink="/administration-get-users">Users</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 <router-outlet></router-outlet>

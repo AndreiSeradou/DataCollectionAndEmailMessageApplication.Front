@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { Constants } from './Helper/Constants';
+import { Constants } from './Helper/constants';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'DataCollectionAndEmailMessageApplication.Front';
-
+  title = 'webAuth';
   constructor(){}
-
   onLogout()
   {
     localStorage.removeItem(Constants.USER_KEY);
@@ -32,4 +31,3 @@ export class AppComponent {
     return user && user.length>0 && role == "Admin";
   }
 }
-
