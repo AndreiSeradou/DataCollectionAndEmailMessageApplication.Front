@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthUserService } from '../AppService/auth/auth-user.service';
+import { AuthUserService } from 'src/app/services/auth/auth-user.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    let email=this.loginForm.controls["email"].value;
-    let password=this.loginForm.controls["password"].value;
+    const email=this.loginForm.controls["email"].value;
+    const password=this.loginForm.controls["password"].value;
     this.authService.login(email,password).subscribe(data => {
       console.log(data.name)
       if (data.success) {

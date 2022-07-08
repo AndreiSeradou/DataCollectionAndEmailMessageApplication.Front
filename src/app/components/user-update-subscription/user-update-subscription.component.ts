@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SibscriptionsService } from '../AppService/sibscriptions/sibscriptions.service';
-import { Subscriptions } from '../Models/subscriptionModel';
+import { ISubscriptions } from 'src/app/interfaces/subscription.interface';
+import { SibscriptionsService } from 'src/app/services/sibscriptions/sibscriptions.service';
 
 @Component({
   selector: 'app-user-update-subscription',
@@ -20,20 +20,31 @@ export class UserUpdateSubscriptionComponent implements OnInit {
     apiParams:['',[Validators.required]],
     apiName:['',[Validators.required]],
   })
-  
+
   ngOnInit(): void {
   }
 
   onSubmit(){
-    let id=this.updateSubForm.controls["id"].value;
-    let apiName=this.updateSubForm.controls["apiName"].value;
-    let name=this.updateSubForm.controls["name"].value;
-    let description=this.updateSubForm.controls["description"].value;
-    let cronParams=this.updateSubForm.controls["cocronParams"].value;
-    let apiParams=this.updateSubForm.controls["apiParams"].value;
-    let userName=localStorage.getItem("name");
+    const id=this.updateSubForm.controls["id"].value;
+    const apiName=this.updateSubForm.controls["apiName"].value;
+    const name=this.updateSubForm.controls["name"].value;
+    const description=this.updateSubForm.controls["description"].value;
+    const cronParams=this.updateSubForm.controls["cocronParams"].value;
+    const apiParams=this.updateSubForm.controls["apiParams"].value;
+    const userName=localStorage.getItem("name");
 
-    this.subService.UpdateSubscription(new Subscriptions(name, description,userName,cronParams,"",id,apiParams,apiName)).subscribe(data => {
+    let sub : ISubscriptions = {
+      name:name,
+      description:description,
+      userName:userName,
+      cronParams:cronParams,
+      apiParams:apiParams,
+      apiName:apiName,
+      id:id,
+      lastRunTime:""
+    }
+
+    this.subService.UpdateSubscription(sub).subscribe(data => {
 
       if (data) {
         alert("Successfully create");

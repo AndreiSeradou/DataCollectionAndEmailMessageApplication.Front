@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SibscriptionsService } from '../AppService/sibscriptions/sibscriptions.service';
-import { Subscriptions } from '../Models/subscriptionModel';
+import { ISubscriptions } from 'src/app/interfaces/subscription.interface';
+import { SibscriptionsService } from 'src/app/services/sibscriptions/sibscriptions.service';
+
 
 @Component({
   selector: 'app-user-create-subscription',
@@ -19,19 +20,30 @@ export class UserCreateSubscriptionComponent implements OnInit {
     apiParams:['',[Validators.required]],
     apiName:['',[Validators.required]],
   })
-  
+
   ngOnInit(): void {
   }
 
   onSubmit(){
-    let apiName=this.createSubForm.controls["apiName"].value;
-    let name=this.createSubForm.controls["name"].value;
-    let description=this.createSubForm.controls["description"].value;
-    let cronParams=this.createSubForm.controls["cocronParams"].value;
-    let apiParams=this.createSubForm.controls["apiParams"].value;
-    let userName=localStorage.getItem("name");
+    const apiName=this.createSubForm.controls["apiName"].value;
+    const name=this.createSubForm.controls["name"].value;
+    const description=this.createSubForm.controls["description"].value;
+    const cronParams=this.createSubForm.controls["cocronParams"].value;
+    const apiParams=this.createSubForm.controls["apiParams"].value;
+    const userName=localStorage.getItem("name");
 
-    this.subService.Subscribe(new Subscriptions(name, description,userName,cronParams,"",0,apiParams,apiName)).subscribe(data => {
+    let sub : ISubscriptions = {
+      name:name,
+      description:description,
+      userName:userName,
+      cronParams:cronParams,
+      apiParams:apiParams,
+      apiName:apiName,
+      id:0,
+      lastRunTime:""
+    }
+
+    this.subService.Subscribe(sub).subscribe(data => {
 
       if (data) {
         alert("Successfully create");
@@ -44,5 +56,7 @@ export class UserCreateSubscriptionComponent implements OnInit {
       }
       })
       }
-    
+
 }
+
+

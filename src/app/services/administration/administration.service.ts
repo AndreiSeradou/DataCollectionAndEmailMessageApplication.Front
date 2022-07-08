@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/Models/user';
+import { IUser } from 'src/app/interfaces/user.interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,6 @@ export class AdministrationService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
-    return  this.httpClient.get<User[]>(this.baseURL+"Administration/all-users",{headers:headers});
+    return  this.httpClient.get<IUser[]>(this.baseURL+"Administration/all-users",{headers:headers});
   }
 }

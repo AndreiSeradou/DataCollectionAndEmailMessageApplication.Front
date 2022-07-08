@@ -1,4 +1,4 @@
-export class ResponceModel
+export interface IResponses
 {
     name: string;
     role: string;

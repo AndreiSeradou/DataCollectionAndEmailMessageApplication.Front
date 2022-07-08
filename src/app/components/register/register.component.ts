@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthUserService } from '../AppService/auth/auth-user.service';
+import { AuthUserService } from 'src/app/services/auth/auth-user.service';
 
 @Component({
   selector: 'app-register',
@@ -20,9 +20,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-   let fullName=this.registerForm.controls["fullName"].value;
-   let email=this.registerForm.controls["email"].value;
-   let password=this.registerForm.controls["password"].value;
+   const fullName=this.registerForm.controls["fullName"].value;
+   const email=this.registerForm.controls["email"].value;
+   const password=this.registerForm.controls["password"].value;
    this.authService.register(fullName,email,password).subscribe((data)=>{
     console.log("response",data.token);
     if (data.success) {

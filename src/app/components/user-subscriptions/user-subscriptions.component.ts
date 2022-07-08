@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SibscriptionsService } from '../AppService/sibscriptions/sibscriptions.service';
-import { Subscriptions } from '../Models/subscriptionModel';
+import { ISubscriptions } from 'src/app/interfaces/subscription.interface';
+import { SibscriptionsService } from 'src/app/services/sibscriptions/sibscriptions.service';
+
 
 @Component({
   selector: 'app-user-subscriptions',
@@ -9,7 +10,7 @@ import { Subscriptions } from '../Models/subscriptionModel';
 })
 export class UserSubscriptionsComponent implements OnInit {
 
-  public subList:Subscriptions[] = [];
+  public subList:ISubscriptions[] = [];
 
  constructor(private subService:SibscriptionsService) { }
 

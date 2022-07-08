@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdministrationService } from '../AppService/administration/administration.service';
-import { User } from '../Models/user';
+import { IUser } from 'src/app/interfaces/user.interface';
+import { AdministrationService } from 'src/app/services/administration/administration.service';
 
 @Component({
   selector: 'app-administration-get-users',
@@ -9,7 +9,7 @@ import { User } from '../Models/user';
 })
 export class AdministrationGetUsersComponent implements OnInit {
 
-  public userList: User[] = [];
+  public userList: IUser[] = [];
   
   constructor(private adminService:AdministrationService) { }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Constants } from './Helper/constants';
+import { userKey } from './constants/user.constant';
+
 
 
 @Component({
@@ -12,21 +13,21 @@ export class AppComponent {
   constructor(){}
   onLogout()
   {
-    localStorage.removeItem(Constants.USER_KEY);
+    localStorage.removeItem(userKey);
     localStorage.removeItem("role");
     localStorage.removeItem("name");
   }
 
  get isUserLogin()
   {
-    const user = localStorage.getItem(Constants.USER_KEY);
+    const user = localStorage.getItem(userKey);
     const role = localStorage.getItem("role");
     return user && user.length>0 && role == "User";
   }
 
   get isAdminLogin()
   {
-    const user = localStorage.getItem(Constants.USER_KEY);
+    const user = localStorage.getItem(userKey);
     const role = localStorage.getItem("role");
     return user && user.length>0 && role == "Admin";
   }
