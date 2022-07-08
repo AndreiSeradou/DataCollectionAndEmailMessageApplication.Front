@@ -1,4 +1,4 @@
-# WebAuth(перед началом использования установите '@angular-devkit/build-angular:dev-server' и запустите проект из консоли(ng serve))
+# WebAuth(перед началом использования установите через консоль '@angular-devkit/build-angular:dev-server' и запустите проект из консоли(ng serve))
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
 
