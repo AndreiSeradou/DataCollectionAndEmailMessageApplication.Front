@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/data-collection-and-email-message-application.front'),
+      dir: require('path').join(__dirname, './coverage/web-auth'),
       subdir: '.',
       reporters: [
         { type: 'html' },

@@ -1,11 +1,21 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DataCollectionAndEmailMessageApplication.Front": {
+    "webAuth": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,17 +23,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/data-collection-and-email-message-application.front",
+            "outputPath": "dist/web-auth",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -64,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "DataCollectionAndEmailMessageApplication.Front:build:production"
+              "browserTarget": "webAuth:build:production"
             },
             "development": {
-              "browserTarget": "DataCollectionAndEmailMessageApplication.Front:build:development"
+              "browserTarget": "webAuth:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DataCollectionAndEmailMessageApplication.Front:build"
+            "browserTarget": "webAuth:build"
           }
         },
         "test": {
@@ -85,12 +96,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -98,7 +110,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": "509ec09f-7e3b-4dba-baaf-87eeade70b05"
-  }
+  "defaultProject": "webAuth"
 }

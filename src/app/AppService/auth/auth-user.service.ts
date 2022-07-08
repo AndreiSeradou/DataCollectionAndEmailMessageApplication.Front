@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ResponceModel } from '../Models/ResponceModel';
+import { ResponceModel } from 'src/app/Models/responceModel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthToRequestService {
-
+export class AuthUserService {
+  
   private readonly baseURL:string="http://localhost:8090/";
 
   constructor(private httpClient:HttpClient) { }

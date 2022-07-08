@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthToRequestService } from '../app-service/auth-to-request.service';
+import { AuthUserService } from '../AppService/auth/auth-user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   public loginForm=this.formBuilder.group({
     email:['',[Validators.email,Validators.required]],
     password:['',Validators.required]
   })
-  constructor(private formBuilder:FormBuilder, private authService:AuthToRequestService, private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private authService:AuthUserService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,22 +21,21 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     let email=this.loginForm.controls["email"].value;
     let password=this.loginForm.controls["password"].value;
-    this.authService.login(email,password).subscribe((data: { name: string; success: any; token: string; role: string; }) => {
+    this.authService.login(email,password).subscribe(data => {
       console.log(data.name)
       if (data.success) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("name", data.name);
         localStorage.setItem("role", data.role);
-        if (data.role == "User")
+        if (data.role == "AppUser")
         {
-          this.router.navigateByUrl('subscriptions');
+          this.router.navigateByUrl('user-get-all-books');
         }
         else
         {
-          this.router.navigateByUrl('administrations');
+          this.router.navigateByUrl('librarian-get-all-orders');
         }
       }
     })
    }
-
 }
