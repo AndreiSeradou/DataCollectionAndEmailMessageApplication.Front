@@ -73,6 +73,7 @@ export class SibscriptionsService {
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
+      'id': `${model.id}`,
       'name': `${model.name}`,
       'description': `${model.description}`,
       'cronParams': `${model.cronParams}`,
@@ -80,13 +81,6 @@ export class SibscriptionsService {
       'userName': `${model.userName}`,
     });
 
-    const body={
-      name:model.name,
-      description:model.description,
-      cronParams:model.cronParams,
-      lastRunTime:model.lastRunTime,   
-      userName:userName
-    }
     return  this.httpClient.delete<boolean>(this.baseURL+"Subscription/unsubscribe",{headers:headers});
   }
 }
