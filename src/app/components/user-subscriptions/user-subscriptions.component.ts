@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ISubscriptions } from 'src/app/interfaces/subscription.interface';
+import { ApiService } from 'src/app/services/apis/api.service';
 import { SibscriptionsService } from 'src/app/services/sibscriptions/sibscriptions.service';
 
 
@@ -12,7 +13,7 @@ export class UserSubscriptionsComponent implements OnInit {
 
   public subList:ISubscriptions[] = [];
 
- constructor(private subService:SibscriptionsService) { }
+ constructor(private subService:SibscriptionsService, private apiService:ApiService) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -27,6 +28,13 @@ export class UserSubscriptionsComponent implements OnInit {
   {
     this.subService.GetAllSubscriptions().subscribe((data:any)=>{
       this.subList = data;
+    })
+  }
+
+  getAllApis()
+  {
+    this.apiService.GetAllApis().subscribe((data:any)=>{
+      alert(data);
     })
   }
 }
