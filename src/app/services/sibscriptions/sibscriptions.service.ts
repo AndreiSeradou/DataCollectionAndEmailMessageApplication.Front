@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { appName, userKey } from 'src/app/constants/user.constant';
 import { ISubscriptions } from 'src/app/interfaces/subscription.interface';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class SibscriptionsService {
 
   public GetAllSubscriptions()
   {
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem(userKey);
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,8 +25,8 @@ export class SibscriptionsService {
 
   public Subscribe(model : ISubscriptions)
   {
-    let token = localStorage.getItem("token");
-    let userName = localStorage.getItem("name");
+    let token = localStorage.getItem(userKey);
+    let userName = localStorage.getItem(appName);
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
@@ -45,8 +46,8 @@ export class SibscriptionsService {
 
   public UpdateSubscription(model : ISubscriptions)
   {
-    let token = localStorage.getItem("token");
-    let userName = localStorage.getItem("name");
+    let token = localStorage.getItem(userKey);
+    let userName = localStorage.getItem(appName);
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
@@ -66,8 +67,8 @@ export class SibscriptionsService {
 
   public Unsubscribe(model : ISubscriptions)
   {
-    let token = localStorage.getItem("token");
-    let userName = localStorage.getItem("name");
+    let token = localStorage.getItem(userKey);
+    let userName = localStorage.getItem(appName);
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',

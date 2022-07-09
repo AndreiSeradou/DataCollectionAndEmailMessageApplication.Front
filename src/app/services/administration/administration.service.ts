@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { userKey } from 'src/app/constants/user.constant';
 import { IUser } from 'src/app/interfaces/user.interface';
 
 
@@ -14,7 +15,7 @@ export class AdministrationService {
 
   public getAllUsers()
   {
-    let token = localStorage.getItem("token");
+    let token = localStorage.getItem(userKey);
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',

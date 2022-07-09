@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { userKey } from './constants/user.constant';
+import { adminRole, appName, appRole, userKey, userRole } from './constants/user.constant';
 
 
 
@@ -14,21 +14,21 @@ export class AppComponent {
   onLogout()
   {
     localStorage.removeItem(userKey);
-    localStorage.removeItem("role");
-    localStorage.removeItem("name");
+    localStorage.removeItem(appRole);
+    localStorage.removeItem(appName);
   }
 
  get isUserLogin()
   {
     const user = localStorage.getItem(userKey);
-    const role = localStorage.getItem("role");
-    return user && user.length>0 && role == "User";
+    const role = localStorage.getItem(appRole);
+    return user && user.length>0 && role == userRole;
   }
 
   get isAdminLogin()
   {
     const user = localStorage.getItem(userKey);
-    const role = localStorage.getItem("role");
-    return user && user.length>0 && role == "Admin";
+    const role = localStorage.getItem(appRole);
+    return user && user.length>0 && role == adminRole;
   }
 }
