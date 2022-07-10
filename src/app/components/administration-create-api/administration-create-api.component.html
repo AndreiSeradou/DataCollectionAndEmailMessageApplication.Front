@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card">
+                <form [formGroup]="createSubForm" (ngSubmit)="onSubmit()">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Create Api</h5>
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="name" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Url</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="url" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Api Key</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="apiKey" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Api Host</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="apiHost" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Api Key Header</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="apiKeyHeader" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                      <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Api Host Header</label>
+                        <div class="col-sm-10">
+                          <input type="text" formControlName="apiHostHeader" class="form-control" id="number" value="">
+                        </div>
+                      </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!createSubForm.valid">Create</button>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+
