@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddInformationComponent } from './components/add-information/add-information.component';
 import { AdministrationGetUsersComponent } from './components/administration-get-users/administration-get-users.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -19,7 +18,6 @@ import { AdministrationCreateApiComponent } from './components/administration-cr
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    AddInformationComponent,
     AdministrationGetUsersComponent,
     UserCreateSubscriptionComponent,
     UserUpdateSubscriptionComponent,
