@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserCreateSubscriptionComponent } from './components/user-create-subscription/user-create-subscription.component';
 import { UserSubscriptionsComponent } from './components/user-subscriptions/user-subscriptions.component';
 import { UserUpdateSubscriptionComponent } from './components/user-update-subscription/user-update-subscription.component';
+import { AdministrationCreateApiComponent } from './components/administration-create-api/administration-create-api.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserUpdateSubscriptionComponent } from './components/user-update-subscr
     AdministrationGetUsersComponent,
     UserCreateSubscriptionComponent,
     UserUpdateSubscriptionComponent,
-    UserSubscriptionsComponent
+    UserSubscriptionsComponent,
+    AdministrationCreateApiComponent
   ],
   imports: [
     BrowserModule,
