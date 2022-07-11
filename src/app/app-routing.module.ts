@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdministrationCreateApiComponent } from './components/administration-create-api/administration-create-api.component';
 import { AdministrationGetUsersComponent } from './components/administration-get-users/administration-get-users.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:"administration-get-users",component:AdministrationGetUsersComponent,canActivate:[AuthGuard]},
   {path:"user-create-subscription",component:UserCreateSubscriptionComponent,canActivate:[AuthGuard]},
   {path:"user-subscriptions",component:UserSubscriptionsComponent,canActivate:[AuthGuard]},
-  {path:"user-update-subscription",component:UserUpdateSubscriptionComponent,canActivate:[AuthGuard]}
+  {path:"user-update-subscription",component:UserUpdateSubscriptionComponent,canActivate:[AuthGuard]},
+  {path:"administration-create-api",component:AdministrationCreateApiComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -29,13 +29,13 @@ export class RegisterComponent implements OnInit {
       localStorage.setItem("token", data.token);
       localStorage.setItem("name", data.name);
       localStorage.setItem("role", data.role);
-      if (data.role == "AppUser")
+      if (data.role == "User")
         {
-          this.router.navigateByUrl('user-get-all-books');
+          this.router.navigateByUrl('user-subscriptions');
         }
         else
         {
-          this.router.navigateByUrl('librarian-get-all-orders');
+          this.router.navigateByUrl('administration-get-users');
         }
     }
    },error=>{
