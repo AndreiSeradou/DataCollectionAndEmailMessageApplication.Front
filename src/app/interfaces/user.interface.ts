@@ -1,8 +1,7 @@
 export interface IUser
 {
-  fullName:string;
   email:string;
-  userName:string;
+  name:string;
   numberOfUsesApis:number;
   numberOfRunningJobs :number;
 }

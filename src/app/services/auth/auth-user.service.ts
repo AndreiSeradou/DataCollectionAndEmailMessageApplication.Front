@@ -25,7 +25,7 @@ export class AuthUserService {
   {
 
     const body={
-      username:fullname,
+      name:fullname,
       email:email,
       password:password
     }
