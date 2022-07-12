@@ -5,7 +5,7 @@ export interface ISubscriptions
     id: number;
     name:string;
     description:string;
-    cronParams:string;
+    cronExpression:string;
     apiParams:string;
     lastRunTime:string;
     dateStart:string;

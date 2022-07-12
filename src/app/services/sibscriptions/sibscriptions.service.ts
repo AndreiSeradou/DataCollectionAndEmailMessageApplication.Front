@@ -37,9 +37,13 @@ export class SibscriptionsService {
     const body={
       name:model.name,
       description:model.description,
-      cronParams:model.cronParams, 
+      cronExpression:model.cronExpression,
+      apiName:model.apiName, 
+      userName:userName,
+      id:model.id,
+      lastRunTime:model.lastRunTime,
       dateStart:model.dateStart,
-      userName:userName
+      apiParams:model.apiParams,    
     }
 
     return  this.httpClient.post<boolean>(this.baseURL+"Subscription/subscribe",body,{headers:headers});
@@ -58,7 +62,7 @@ export class SibscriptionsService {
     const body={
       name:model.name,
       description:model.description,
-      cronParams:model.cronParams,
+      cronExpression:model.cronExpression,
       lastRunTime:model.lastRunTime,   
       userName:userName
     }
@@ -66,7 +70,7 @@ export class SibscriptionsService {
     return  this.httpClient.put<boolean>(this.baseURL+"Subscription/update",body,{headers:headers});
   }
 
-  public Unsubscribe(model : ISubscriptions)
+  public Unsubscribe(name : string)
   {
     let token = localStorage.getItem(userKey);
     let userName = localStorage.getItem(appName);
@@ -74,14 +78,8 @@ export class SibscriptionsService {
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
-      'id': `${model.id}`,
-      'name': `${model.name}`,
-      'description': `${model.description}`,
-      'cronParams': `${model.cronParams}`,
-      'lastRunTime': `${model.lastRunTime}`,
-      'userName': `${model.userName}`,
     });
-
-    return  this.httpClient.delete<boolean>(this.baseURL+"Subscription/unsubscribe",{headers:headers});
+ 
+    return  this.httpClient.delete<boolean>(this.baseURL+"Subscription/unsubscribe?name="+name,{headers:headers});
   }
 }

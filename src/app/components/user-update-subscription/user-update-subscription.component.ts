@@ -39,12 +39,12 @@ export class UserUpdateSubscriptionComponent implements OnInit {
       name:name,
       description:description,
       userName:userName,
-      cronParams:cronParams,
+      cronExpression:cronParams,
       apiParams:apiParams,
       apiName:apiName,
       dateStart:dateStart,
       id:id,
-      lastRunTime:""
+      lastRunTime:'2022-07-12T11:57:48.339'
     }
 
     this.subService.UpdateSubscription(sub).subscribe(data => {

@@ -19,9 +19,9 @@ export class UserSubscriptionsComponent implements OnInit {
     this.getAll();
   }
 
-  onSubmitDeleteSub(id:number)
+  onSubmitDeleteSub(name:string)
   {
-    this.subService.Unsubscribe(this.subList.find(el => el.id == id));
+    this.subService.Unsubscribe(name);
   }
 
   getAll()
