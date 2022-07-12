@@ -17,8 +17,9 @@ export class UserCreateSubscriptionComponent implements OnInit {
     name:['',[Validators.required]],
     description:['',[Validators.required]],
     cronParams:['',[Validators.required]],
-    apiParams:['',[Validators.required]],
+    apiParams:['',[]],
     apiName:['',[Validators.required]],
+    dateStart:['',[]],
   })
 
   ngOnInit(): void {
@@ -28,8 +29,9 @@ export class UserCreateSubscriptionComponent implements OnInit {
     const apiName=this.createSubForm.controls["apiName"].value;
     const name=this.createSubForm.controls["name"].value;
     const description=this.createSubForm.controls["description"].value;
-    const cronParams=this.createSubForm.controls["cocronParams"].value;
+    const cronParams=this.createSubForm.controls["cronParams"].value;
     const apiParams=this.createSubForm.controls["apiParams"].value;
+    const dateStart=this.createSubForm.controls["dateStart"].value;
     const userName=localStorage.getItem("name");
 
     let sub : ISubscriptions = {
@@ -39,8 +41,9 @@ export class UserCreateSubscriptionComponent implements OnInit {
       cronParams:cronParams,
       apiParams:apiParams,
       apiName:apiName,
+      dateStart:dateStart,
       id:0,
-      lastRunTime:""
+      lastRunTime:'7/12/2022 1:35:59 AM' 
     }
 
     this.subService.Subscribe(sub).subscribe(data => {

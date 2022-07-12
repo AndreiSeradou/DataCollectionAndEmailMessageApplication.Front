@@ -1,3 +1,5 @@
+import { DeclarationListEmitMode } from "@angular/compiler";
+
 export interface ISubscriptions
 {
     id: number;
@@ -6,6 +8,7 @@ export interface ISubscriptions
     cronParams:string;
     apiParams:string;
     lastRunTime:string;
+    dateStart:string;
     apiName:string;
     userName:string;
 }

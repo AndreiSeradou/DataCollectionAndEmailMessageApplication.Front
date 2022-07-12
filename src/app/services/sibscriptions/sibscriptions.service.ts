@@ -18,13 +18,14 @@ export class SibscriptionsService {
 
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'Access-Control-Allow-Origin': 'http://localhost:4200'
     });
     return  this.httpClient.get<ISubscriptions[]>(this.baseURL+"Subscription/all",{headers:headers});
   }
 
   public Subscribe(model : ISubscriptions)
-  {
+  {     
     let token = localStorage.getItem(userKey);
     let userName = localStorage.getItem(appName);
 
@@ -36,8 +37,8 @@ export class SibscriptionsService {
     const body={
       name:model.name,
       description:model.description,
-      cronParams:model.cronParams,
-      lastRunTime:model.lastRunTime,   
+      cronParams:model.cronParams, 
+      dateStart:model.dateStart,
       userName:userName
     }
 

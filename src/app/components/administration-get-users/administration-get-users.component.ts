@@ -25,6 +25,6 @@ export class AdministrationGetUsersComponent implements OnInit {
    }
 
    getUserStatistics(numJob: number, numApi: number){
-    alert("Number of jobs:" + numJob + "Number of Apis" + numApi);
+    alert("Number of jobs: " + numJob + " Number of Apis: " + numApi);
    }
 }

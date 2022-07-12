@@ -19,6 +19,7 @@ export class UserUpdateSubscriptionComponent implements OnInit {
     cronParams:['',[Validators.required]],
     apiParams:['',[Validators.required]],
     apiName:['',[Validators.required]],
+    dateStart:['',[Validators.required]],
   })
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class UserUpdateSubscriptionComponent implements OnInit {
     const description=this.updateSubForm.controls["description"].value;
     const cronParams=this.updateSubForm.controls["cocronParams"].value;
     const apiParams=this.updateSubForm.controls["apiParams"].value;
+    const dateStart=this.updateSubForm.controls["dateStart"].value;
     const userName=localStorage.getItem("name");
 
     let sub : ISubscriptions = {
@@ -40,6 +42,7 @@ export class UserUpdateSubscriptionComponent implements OnInit {
       cronParams:cronParams,
       apiParams:apiParams,
       apiName:apiName,
+      dateStart:dateStart,
       id:id,
       lastRunTime:""
     }
